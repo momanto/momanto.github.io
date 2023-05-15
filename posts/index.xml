@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Momanto&#39;s Blog</title>
+    <link>http://momanto.github.io/posts/</link>
+    <description>Recent content in Posts on Momanto&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 May 2023 23:58:18 +0800</lastBuildDate><atom:link href="http://momanto.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo基本操作</title>
+      <link>http://momanto.github.io/posts/hugo-use/</link>
+      <pubDate>Fri, 05 May 2023 23:58:18 +0800</pubDate>
+      
+      <guid>http://momanto.github.io/posts/hugo-use/</guid>
+      <description>参考
+Hugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/
+创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：
+hugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：
+cd /path/to/site 站点目录结构（大致如下）：
+- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表
+Complete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：
+# 创建 themes 目录 cd themes git clone https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

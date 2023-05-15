@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Hugo基本操作 | Momanto&#39;s Blog</title>
+<meta name="keywords" content="Hugo, Docs">
+<meta name="description" content="参考
+Hugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/
+创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：
+hugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：
+cd /path/to/site 站点目录结构（大致如下）：
+- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表
+Complete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：
+# 创建 themes 目录 cd themes git clone https://github.">
+<meta name="author" content="">
+<link rel="canonical" href="http://momanto.github.io/posts/hugo-use/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://momanto.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://momanto.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://momanto.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://momanto.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://momanto.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Hugo基本操作" />
+<meta property="og:description" content="参考
+Hugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/
+创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：
+hugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：
+cd /path/to/site 站点目录结构（大致如下）：
+- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表
+Complete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：
+# 创建 themes 目录 cd themes git clone https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://momanto.github.io/posts/hugo-use/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-05T23:58:18+08:00" />
+<meta property="article:modified_time" content="2023-05-05T23:58:18+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo基本操作"/>
+<meta name="twitter:description" content="参考
+Hugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/
+创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：
+hugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：
+cd /path/to/site 站点目录结构（大致如下）：
+- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表
+Complete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：
+# 创建 themes 目录 cd themes git clone https://github."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://momanto.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Hugo基本操作",
+      "item": "http://momanto.github.io/posts/hugo-use/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hugo基本操作",
+  "name": "Hugo基本操作",
+  "description": "参考\nHugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/\n创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：\nhugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：\ncd /path/to/site 站点目录结构（大致如下）：\n- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表\nComplete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：\n# 创建 themes 目录 cd themes git clone https://github.",
+  "keywords": [
+    "Hugo", "Docs"
+  ],
+  "articleBody": "参考\nHugo中文文档 (gohugo.org) Docs - Hugo中文文档 (gohugo.org) hugo · Andbible 安装Hugo 参考 https://www.gohugo.org/doc/overview/installing/\n创建与配置 创建本地博客目录 使用Hugo生成本地博客目录（站点），比如希望生成到 /path/to/site 路径：\nhugo new site /path/to/site 这样就在 /path/to/site 目录里生成了初始站点，进入目录：\ncd /path/to/site 站点目录结构（大致如下）：\n- archetypes/ - content/ # 存放markdown文件 - layouts/ - static/ - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml 安装皮肤 皮肤列表\nComplete List | Hugo Themes (gohugo.io) 皮肤列表 到 皮肤列表 挑选一个心仪的皮肤，比如你觉得 Hyde 皮肤不错，找到相关的 GitHub 地址，在本地站点目录下创建目录 themes，在 themes 目录里把皮肤 git clone 下来：\n# 创建 themes 目录 cd themes git clone https://github.com/spf13/hyde.git 在config.yaml中配置相应theme\nconfig.yaml config是Hugo的配置文件。Hugo支持多种类型的config文件。\nHugo 首先在源目录查找一个 config.toml 的配置文件。如果这个文件不存在，将会查找 config.yaml，然后是 config.json\nconfig内部具体配置可以参考 配置 Hugo - Hugo中文文档 (gohugo.org)。\n需要注意的是config的配置内容和选用的主题是相关联的。比如选用的主题是hyde，那么config的配置内容就是hyde主题的配置内容。\n创建文章与配置 创建文章 创建一个 about 页面：\nhugo new about.md about.md 自动生成到了 content/about.md ，打开 about.md 看下：\n--- date = \"2015-10-25T08:36:54-07:00\" draft = true title = \"about\" --- 正文内容 上述内容模板，是根据站点目录下的archetypes/default.md文件生成的。如果你想自定义生成的内容，可以修改archetypes/default.md文件，具体可以参考loveit主题下的archetypes/default.md。\n使用+++ 表示是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 --- 标记）或者 JSON 格式。\n创建第一篇文章，放到 post 目录，方便之后生成聚合页面。\nhugo new post/first.md 打开编辑 post/first.md ：\n--- date: \"2015-10-25T08:36:54-07:00\" title: \"first\" --- ### Hello Hugo 1. aaa 1. bbb 1. ccc 运行与部署 参考\nUsing Hugo - Hugo中文文档 (gohugo.org)可以查看一些命令行具体参数 主要分成两种，hugo命令生成静态网站目录，而hugo server命令则是启动一个web服务器，可以用于调试或是直接代替apache等服务。\nHugo的参数首先具有默认值，其次会被config.yaml中的配置覆盖，最后才是命令行参数覆盖。\n调试Hugo 在你的站点根目录执行 Hugo server 启动服务器进行调试：\nhugo server --buildDrafts --bind=127.0.0.1 --port=1313 --baseURL=127.0.0.1 （注明：v0.15 版本之后，不再需要使用 --watch 参数了） 浏览器里打开： http://localhost:1313\n--buildDrafts 参数表示生成草稿页面，如果不需要生成草稿页面，可以去掉这个参数。\n上述bind, port, baseURL 是Hugo的默认值，用于本地调试。默认值会被config.yaml代替。\n生成静态网站 在站点根目录执行 Hugo 命令生成最终页面：\nhugo --baseUrl=\"http://coderzh.github.io/\" （注意，以上命令并不会生成草稿页面，如果未生成任何文章，请去掉markdown文章头部的 draft=true 再重新生成。）\n这里的--baseUrl 等参数也可以写在 config.yml 中，不需要每次都在命令行中写参数，直接执行 hugo 即可。\n如果一切顺利，所有静态页面都会生成到 public 目录。\n部署到GitHub 有两种方式，一种是通过将public/目录push到远程仓库xxx.github.io中，另一种是使用GitHub Actions。\npush public目录 cd public git init git remote add origin https://github.com/coderzh/coderzh.github.io.git git add -A git commit -m \"init\" git branch -M main git push -u origin main 浏览器里访问：http://coderzh.github.io/\n之后再次push，则直接通过add, commit, push即可。\n使用GitHub Actions 可以通过GitHub Actions自动部署，其原理是将/path/to/site目录push到远程仓库，通过提交到GitHub，远程仓库自动执行hugo命令生成public作为另一个分支gh-pages内容，然后GitHub Pages选择gh-pages分支去渲染站点。\n重点是Actions的编写。具体可以参考 知乎|使用hugo生成静态博客并部署在GitHub上。GitHub Actions还有很多其他强大的功能，值得深入学习。\n关于部署的说明 运行 hugo 命令 并不会 删除之前生成的文件。这意味着你必须在运行 hugo 命令之前删除你的 public/ 目录（或者你通过 -d/--destination 指定的目录）。 不然的话，你可能有运行遗留在生成目录的错误文件的风险（比如草稿或者未来的文章）。换一个主题也会有同样的问题。\n一个简单的处理方法如下。\ncd /path/to/site # 从远程仓库clone一份public目录 git clone git@github.com:coderzh/coderzh.github.io.git # 改名为public并且删除其中内容，重新生成public rm -rf public mv coderzh.github.io/ public/ cd public/ find . -not -path \"./.git/*\" -not -name \".gitignore\" -not -name \".git\" -delete cd .. hugo # 提交public目录，同时清除过去commit git checkout --orphan nb git add -A git commit -m \"init\" git branch -D main git branch -M main git push -f origin main 在服务器上部署 首先是经典的，通过生成静态网站public，然后通过nginx等服务进行部署。\n除此以外还有一种更便捷的选择。由于 Hugo 运行的非常快，不仅在生成站点时，也 在运行 Web 服务时（得益于 Go 语言关于并发和多线程的良好设计）。 有些用户事实上选择使用 Hugo 本身作为 Web 服务器用于他的生产环境服务器。\n不再需要其他的 Web 服务器了 （Apache 、 nginx 、 IIS ……）。\n如果想直接把hugo server当作对外展示服务，则需要修改对应bind以及baseURL，将bind改成服务器ip地址，baseURL改成域名。下面是执行的命令：\nhugo server --bind=88.88.88.88 --port=6666 --baseURL=\"http://coderzh.com/\" 执行完可以访问http://coderzh.com/6666。\nhugo server --baseURL=http://yoursite.org/ \\ --port=80 \\ --appendPort=false \\ --bind=87.245.198.50 执行完可以访问http://yoursite.org/。（没有端口号得益于--appendPort=false）\n注意 bind 选项，指定了服务器绑定到哪个网络接口（默认是 127.0.0.1 ，适用于大多数开发的时候）。 有些服务器，比如 Amazon WS ，使用网络地址转换（NAT）导致你有时很难找到实际使用的 IP 地址。 使用 --bind=0.0.0.0 将可以绑定到所有接口。\n通过这种方法，实际上你可以只部署你的源文件了，因为 Hugo 会在你的服务器上及时的生成 Web 站点。（而不用生成静态网站public）\n此时对源文件做出修改，Hugo server会自动重新生成网站。\n你可以添加 --disableLiveReload=true 可选选项，如果你不希望将 LiveReload 相关的 JavaScript 代码添加到你的页面。\n",
+  "wordCount" : "385",
+  "inLanguage": "en",
+  "datePublished": "2023-05-05T23:58:18+08:00",
+  "dateModified": "2023-05-05T23:58:18+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://momanto.github.io/posts/hugo-use/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Momanto's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://momanto.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://momanto.github.io/" accesskey="h" title="Momanto&#39;s Blog (Alt + H)">Momanto&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://momanto.github.io/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://momanto.github.io/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://momanto.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://momanto.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://discord.gg/ahpmTvhVmp" title="Discord">
+                    <span>Discord</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/adityatelange/hugo-PaperMod/wiki/" title="WiKi">
+                    <span>WiKi</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Hugo基本操作
+    </h1>
+    <div class="post-meta"><span title='2023-05-05 23:58:18 +0800 CST'>May 5, 2023</span>&nbsp;·&nbsp;2 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85hugo" aria-label="安装Hugo">安装Hugo</a></li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e4%b8%8e%e9%85%8d%e7%bd%ae" aria-label="创建与配置">创建与配置</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e6%9c%ac%e5%9c%b0%e5%8d%9a%e5%ae%a2%e7%9b%ae%e5%bd%95" aria-label="创建本地博客目录">创建本地博客目录</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e7%9a%ae%e8%82%a4" aria-label="安装皮肤">安装皮肤</a></li>
+                <li>
+                    <a href="#configyaml" aria-label="config.yaml">config.yaml</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e6%96%87%e7%ab%a0%e4%b8%8e%e9%85%8d%e7%bd%ae" aria-label="创建文章与配置">创建文章与配置</a><ul>
+                        
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%ba%e6%96%87%e7%ab%a0" aria-label="创建文章">创建文章</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%bf%90%e8%a1%8c%e4%b8%8e%e9%83%a8%e7%bd%b2" aria-label="运行与部署">运行与部署</a><ul>
+                        
+                <li>
+                    <a href="#%e8%b0%83%e8%af%95hugo" aria-label="调试Hugo">调试Hugo</a></li>
+                <li>
+                    <a href="#%e7%94%9f%e6%88%90%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99" aria-label="生成静态网站">生成静态网站</a></li>
+                <li>
+                    <a href="#%e9%83%a8%e7%bd%b2%e5%88%b0github" aria-label="部署到GitHub">部署到GitHub</a><ul>
+                        
+                <li>
+                    <a href="#push-public%e7%9b%ae%e5%bd%95" aria-label="push public目录">push public目录</a></li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8github-actions" aria-label="使用GitHub Actions">使用GitHub Actions</a></li>
+                <li>
+                    <a href="#%e5%85%b3%e4%ba%8e%e9%83%a8%e7%bd%b2%e7%9a%84%e8%af%b4%e6%98%8e" aria-label="关于部署的说明">关于部署的说明</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%9c%a8%e6%9c%8d%e5%8a%a1%e5%99%a8%e4%b8%8a%e9%83%a8%e7%bd%b2" aria-label="在服务器上部署">在服务器上部署</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>参考</p>
+<ul>
+<li><a href="https://www.gohugo.org/">Hugo中文文档 (gohugo.org)</a></li>
+<li><a href="https://www.gohugo.org/doc/">Docs - Hugo中文文档 (gohugo.org)</a></li>
+<li><a href="https://www.andbible.com/tags/hugo/">hugo · Andbible</a></li>
+</ul>
+<h1 id="安装hugo">安装Hugo<a hidden class="anchor" aria-hidden="true" href="#安装hugo">#</a></h1>
+<p>参考 <a href="https://www.gohugo.org/doc/overview/installing/">https://www.gohugo.org/doc/overview/installing/</a></p>
+<h1 id="创建与配置">创建与配置<a hidden class="anchor" aria-hidden="true" href="#创建与配置">#</a></h1>
+<h2 id="创建本地博客目录">创建本地博客目录<a hidden class="anchor" aria-hidden="true" href="#创建本地博客目录">#</a></h2>
+<p>使用Hugo生成本地博客目录（站点），比如希望生成到 <code>/path/to/site</code> 路径：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site /path/to/site
+</span></span></code></pre></div><p>这样就在 <code>/path/to/site</code> 目录里生成了初始站点，进入目录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /path/to/site
+</span></span></code></pre></div><p>站点目录结构（大致如下）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  - archetypes/
+</span></span><span class="line"><span class="cl">  - content/ # 存放markdown文件
+</span></span><span class="line"><span class="cl">  - layouts/
+</span></span><span class="line"><span class="cl">  - static/
+</span></span><span class="line"><span class="cl">  - config.toml 或是 config.yml/yaml/json，个人目前倾向于yaml
+</span></span></code></pre></div><h2 id="安装皮肤">安装皮肤<a hidden class="anchor" aria-hidden="true" href="#安装皮肤">#</a></h2>
+<p>皮肤列表</p>
+<ul>
+<li><a href="https://themes.gohugo.io/">Complete List | Hugo Themes (gohugo.io)</a></li>
+<li><a href="https://www.gohugo.org/theme/">皮肤列表</a> </li>
+</ul>
+<p>到 <a href="https://www.gohugo.org/theme/">皮肤列表</a> 挑选一个心仪的皮肤，比如你觉得 <code>Hyde</code> 皮肤不错，找到相关的 <code>GitHub</code> 地址，在本地站点目录下创建目录 <code>themes</code>，在 <code>themes</code> 目录里把皮肤 <code>git clone</code> 下来：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建 themes 目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> themes
+</span></span><span class="line"><span class="cl">git clone https://github.com/spf13/hyde.git
+</span></span></code></pre></div><p>在<code>config.yaml</code>中配置相应theme</p>
+<h2 id="configyaml">config.yaml<a hidden class="anchor" aria-hidden="true" href="#configyaml">#</a></h2>
+<p>config是Hugo的配置文件。Hugo支持多种类型的config文件。</p>
+<p>Hugo 首先在源目录查找一个 <code>config.toml</code> 的配置文件。如果这个文件不存在，将会查找 <code>config.yaml</code>，然后是 <code>config.json</code></p>
+<p>config内部具体配置可以参考
+<a href="https://www.gohugo.org/doc/overview/configuration/">配置 Hugo - Hugo中文文档 (gohugo.org)</a>。</p>
+<p>需要注意的是config的配置内容和选用的主题是相关联的。比如选用的主题是<code>hyde</code>，那么config的配置内容就是<code>hyde</code>主题的配置内容。</p>
+<h1 id="创建文章与配置">创建文章与配置<a hidden class="anchor" aria-hidden="true" href="#创建文章与配置">#</a></h1>
+<h2 id="创建文章">创建文章<a hidden class="anchor" aria-hidden="true" href="#创建文章">#</a></h2>
+<p>创建一个 <code>about</code> 页面：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new about.md
+</span></span></code></pre></div><p><code>about.md</code> 自动生成到了 <code>content/about.md</code> ，打开 <code>about.md</code> 看下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">date = &#34;2015-10-25T08:36:54-07:00&#34;
+</span></span><span class="line"><span class="cl">draft = true
+</span></span><span class="line"><span class="cl">title = &#34;about&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">正文内容
+</span></span></code></pre></div><p>上述内容模板，是根据站点目录下的<code>archetypes/default.md</code>文件生成的。如果你想自定义生成的内容，可以修改<code>archetypes/default.md</code>文件，具体可以参考<code>loveit</code>主题下的<code>archetypes/default.md</code>。</p>
+<p>使用<code>+++</code> 表示是 <a href="https://github.com/toml-lang/toml">TOML</a> 格式的，根据你的喜好，你可以换成 <a href="http://www.yaml.org/">YAML</a> 格式（使用 <code>---</code> 标记）或者 <a href="http://www.json.org/">JSON</a> 格式。</p>
+<p>创建第一篇文章，放到 <code>post</code> 目录，方便之后生成聚合页面。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new post/first.md
+</span></span></code></pre></div><p>打开编辑 <code>post/first.md</code> ：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">date: &#34;2015-10-25T08:36:54-07:00&#34;
+</span></span><span class="line"><span class="cl">title: &#34;first&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### Hello Hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 1. aaa
+</span></span><span class="line"><span class="cl"> 1. bbb
+</span></span><span class="line"><span class="cl"> 1. ccc
+</span></span></code></pre></div><h1 id="运行与部署">运行与部署<a hidden class="anchor" aria-hidden="true" href="#运行与部署">#</a></h1>
+<p>参考</p>
+<ul>
+<li><a href="https://www.gohugo.org/doc/overview/usage/">Using Hugo - Hugo中文文档 (gohugo.org)</a>可以查看一些命令行具体参数</li>
+</ul>
+<p>主要分成两种，<code>hugo</code>命令生成静态网站目录，而<code>hugo server</code>命令则是启动一个web服务器，可以用于调试或是直接代替apache等服务。</p>
+<p>Hugo的参数首先具有默认值，其次会被<code>config.yaml</code>中的配置覆盖，最后才是命令行参数覆盖。</p>
+<h2 id="调试hugo">调试Hugo<a hidden class="anchor" aria-hidden="true" href="#调试hugo">#</a></h2>
+<p>在你的站点根目录执行 <code>Hugo server</code> 启动服务器进行调试：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server --buildDrafts --bind<span class="o">=</span>127.0.0.1 --port<span class="o">=</span><span class="m">1313</span> --baseURL<span class="o">=</span>127.0.0.1
+</span></span></code></pre></div><p>（注明：v0.15 版本之后，不再需要使用 <code>--watch</code> 参数了）
+浏览器里打开： <code>http://localhost:1313</code></p>
+<p><code>--buildDrafts</code> 参数表示生成草稿页面，如果不需要生成草稿页面，可以去掉这个参数。</p>
+<p>上述<code>bind</code>, <code>port</code>, <code>baseURL</code> 是Hugo的默认值，用于本地调试。默认值会被<code>config.yaml</code>代替。</p>
+<h2 id="生成静态网站">生成静态网站<a hidden class="anchor" aria-hidden="true" href="#生成静态网站">#</a></h2>
+<p>在站点根目录执行 <code>Hugo</code> 命令生成最终页面：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo --baseUrl<span class="o">=</span><span class="s2">&#34;http://coderzh.github.io/&#34;</span>
+</span></span></code></pre></div><p>（注意，以上命令并不会生成草稿页面，如果未生成任何文章，请去掉markdown文章头部的 <code>draft=true</code> 再重新生成。）</p>
+<p>这里的<code>--baseUrl</code> 等参数也可以写在 <code>config.yml</code> 中，不需要每次都在命令行中写参数，直接执行 <code>hugo</code> 即可。</p>
+<p>如果一切顺利，所有静态页面都会生成到 <code>public</code> 目录。</p>
+<h2 id="部署到github">部署到GitHub<a hidden class="anchor" aria-hidden="true" href="#部署到github">#</a></h2>
+<p>有两种方式，一种是通过将<code>public/</code>目录push到远程仓库<code>xxx.github.io</code>中，另一种是使用GitHub Actions。</p>
+<h3 id="push-public目录">push public目录<a hidden class="anchor" aria-hidden="true" href="#push-public目录">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/coderzh/coderzh.github.io.git
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;init&#34;</span>
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></div><p>浏览器里访问：<code>http://coderzh.github.io/</code></p>
+<p>之后再次push，则直接通过<code>add</code>, <code>commit</code>, <code>push</code>即可。</p>
+<h3 id="使用github-actions">使用GitHub Actions<a hidden class="anchor" aria-hidden="true" href="#使用github-actions">#</a></h3>
+<p>可以通过GitHub Actions自动部署，其原理是将<code>/path/to/site</code>目录push到远程仓库，通过提交到GitHub，远程仓库自动执行<code>hugo</code>命令生成public作为另一个分支<code>gh-pages</code>内容，然后GitHub Pages选择<code>gh-pages</code>分支去渲染站点。</p>
+<p>重点是Actions的编写。具体可以参考 <a href="https://zhuanlan.zhihu.com/p/397612900">知乎|使用hugo生成静态博客并部署在GitHub上</a>。GitHub Actions还有很多其他强大的功能，值得深入学习。</p>
+<h3 id="关于部署的说明">关于部署的说明<a hidden class="anchor" aria-hidden="true" href="#关于部署的说明">#</a></h3>
+<p>运行 <code>hugo</code> 命令 <em>并不会</em> 删除之前生成的文件。这意味着你必须在运行 <code>hugo</code> 命令之前删除你的 <code>public/</code> 目录（或者你通过 <code>-d</code>/<code>--destination</code> 指定的目录）。 不然的话，你可能有运行遗留在生成目录的错误文件的风险（比如草稿或者未来的文章）。换一个主题也会有同样的问题。</p>
+<p>一个简单的处理方法如下。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /path/to/site
+</span></span><span class="line"><span class="cl"><span class="c1"># 从远程仓库clone一份public目录</span>
+</span></span><span class="line"><span class="cl">git clone git@github.com:coderzh/coderzh.github.io.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 改名为public并且删除其中内容，重新生成public</span>
+</span></span><span class="line"><span class="cl">rm -rf public
+</span></span><span class="line"><span class="cl">mv coderzh.github.io/ public/
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public/
+</span></span><span class="line"><span class="cl">find . -not -path <span class="s2">&#34;./.git/*&#34;</span> -not -name <span class="s2">&#34;.gitignore&#34;</span> -not -name <span class="s2">&#34;.git&#34;</span> -delete
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提交public目录，同时清除过去commit</span>
+</span></span><span class="line"><span class="cl">git checkout --orphan nb
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;init&#34;</span>
+</span></span><span class="line"><span class="cl">git branch -D main
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git push -f origin main
+</span></span></code></pre></div><h2 id="在服务器上部署">在服务器上部署<a hidden class="anchor" aria-hidden="true" href="#在服务器上部署">#</a></h2>
+<p>首先是经典的，通过生成静态网站public，然后通过nginx等服务进行部署。</p>
+<p>除此以外还有一种更便捷的选择。由于 Hugo 运行的非常快，不仅在生成站点时，<em>也</em> 在运行 Web 服务时（得益于 Go 语言关于并发和多线程的良好设计）。 有些用户事实上选择使用 Hugo 本身作为 Web 服务器<strong>用于他的生产环境服务器</strong>。</p>
+<p>不再需要其他的 Web 服务器了 （Apache 、 nginx 、 IIS ……）。</p>
+<p>如果想直接把<code>hugo server</code>当作对外展示服务，则需要修改对应<code>bind</code>以及<code>baseURL</code>，将<code>bind</code>改成服务器ip地址，<code>baseURL</code>改成域名。下面是执行的命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server --bind<span class="o">=</span>88.88.88.88 --port<span class="o">=</span><span class="m">6666</span> --baseURL<span class="o">=</span><span class="s2">&#34;http://coderzh.com/&#34;</span>
+</span></span></code></pre></div><p>执行完可以访问<code>http://coderzh.com/6666</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server --baseURL<span class="o">=</span>http://yoursite.org/ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>              --port<span class="o">=</span><span class="m">80</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>              --appendPort<span class="o">=</span><span class="nb">false</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>              --bind<span class="o">=</span>87.245.198.50
+</span></span></code></pre></div><p>执行完可以访问<code>http://yoursite.org/</code>。（没有端口号得益于<code>--appendPort=false</code>）</p>
+<p>注意 <code>bind</code> 选项，指定了服务器绑定到哪个网络接口（默认是 <code>127.0.0.1</code> ，适用于大多数开发的时候）。 有些服务器，比如 Amazon WS ，使用网络地址转换（NAT）导致你有时很难找到实际使用的 IP 地址。 使用 <code>--bind=0.0.0.0</code> 将可以绑定到所有接口。</p>
+<p>通过这种方法，实际上你可以只部署你的源文件了，因为 Hugo 会在你的服务器上及时的生成 Web 站点。（而不用生成静态网站public）</p>
+<p>此时对源文件做出修改，Hugo server会自动重新生成网站。</p>
+<p>你可以添加 <code>--disableLiveReload=true</code> 可选选项，如果你不希望将 LiveReload 相关的 JavaScript 代码添加到你的页面。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://momanto.github.io/tags/hugo/">Hugo</a></li>
+      <li><a href="http://momanto.github.io/tags/docs/">Docs</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://momanto.github.io/">Momanto&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
